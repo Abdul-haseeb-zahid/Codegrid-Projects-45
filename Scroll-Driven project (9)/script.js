@@ -20,7 +20,7 @@ const lottieContainer = document.querySelector(".lottie");
 
 const lottieAnimation = lottie.loadAnimation({
   container: lottieContainer,
-  path: "/Walking Tiger.json",
+  path: "Walking Tiger.json",
   renderer: "svg",
   autoplay: false,
 });

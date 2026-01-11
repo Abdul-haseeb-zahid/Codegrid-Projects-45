@@ -12,37 +12,37 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       title:
         "Under the soft hum of streetlights she watches the world ripple through glass, her calm expression mirrored in the fragments of drifting light.",
-      image: "/images/img-1.jpg",
+      image: "images/img-1.jpg",
     },
     {
       title:
         "A car slices through the desert, shadow chasing the wind as clouds of dust rise behind, blurring the horizon into gold and thunder.",
-      image: "/images/img-2.jpg",
+      image: "images/img-2.jpg",
     },
     {
       title:
         "Reflections ripple across mirrored faces, each one a fragment of identity, caught between defiance, doubt, and the silence of thought.",
-      image: "/images/img-3.jpg",
+      image: "images/img-3.jpg",
     },
     {
       title:
         "Soft light spills through the café windows as morning settles into wood and metal, capturing the rhythm of quiet human routine.",
-      image: "/images/img-4.jpg",
+      image: "images/img-4.jpg",
     },
     {
       title:
         "Every serve becomes a battle between focus and instinct, movement flowing like rhythm as the court blurs beneath the sunlight.",
-      image: "/images/img-5.jpg",
+      image: "images/img-5.jpg",
     },
     {
       title:
         "Amber light spills over the stage as guitars cry into smoke and shadow, where music and motion merge into pure energy.",
-      image: "/images/img-6.jpg",
+      image: "images/img-6.jpg",
     },
     {
       title:
         "Dust erupts beneath his stride as sweat glints under floodlights, every step pushing closer to victory, grit, and pure determination.",
-      image: "/images/img-7.jpg",
+      image: "images/img-7.jpg",
     },
   ];
 
