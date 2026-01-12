@@ -24,3 +24,19 @@ body {
   color: #00ffd5;
   transform: translateX(8px);
 }
+
+nav p {
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  color: #00ffd5;
+}
+
+.haseeb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  z-index: 2;
+}
