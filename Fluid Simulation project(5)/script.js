@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const width = window.innerWidth * window.devicePixelRatio;
   const height = window.innerHeight * window.devicePixelRatio;
+
   const options = {
     format: THREE.RGBAFormat,
     type: THREE.FloatType,
@@ -72,17 +73,33 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.height = height;
   const ctx = canvas.getContext("2d", { alpha: true });
 
-  ctx.fillStyle = "#fb7427";
-  ctx.fillRect(0, 0, width, height);
-  const fontSize = Math.round(250 * window.devicePixelRatio);
-  ctx.fillStyle = "#fef4b8";
-  ctx.font = `bold ${fontSize}px Poppin`;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.textRendering = "geometricPrecision";
-  ctx.imageSmoothingEnabled = true;
-  ctx.imageSmoothingQuality = "high";
-  ctx.fillText("Abdul-Haseeb", width / 2, height / 2);
+  // ===== RESPONSIVE TEXT (ONLY CHANGE) =====
+  function drawText(w, h) {
+    ctx.clearRect(0, 0, w, h);
+
+    ctx.fillStyle = "#fb7427";
+    ctx.fillRect(0, 0, w, h);
+
+    let fontSize = w * 0.3;
+    ctx.font = `bold ${fontSize}px Poppins`;
+
+    while (ctx.measureText("Abdul-Haseeb").width > w * 0.85) {
+      fontSize -= 4;
+      ctx.font = `bold ${fontSize}px Poppins`;
+    }
+
+    ctx.fillStyle = "#fef4b8";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.textRendering = "geometricPrecision";
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+
+    ctx.fillText("Abdul-Haseeb", w / 2, h / 2);
+  }
+
+  drawText(width, height);
+  // ========================================
 
   const textTexture = new THREE.CanvasTexture(canvas);
   textTexture.minFilter = THREE.LinearFilter;
@@ -100,15 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     canvas.width = newWidth;
     canvas.height = newHeight;
-    ctx.fillStyle = "#fb7427";
-    ctx.fillRect(0, 0, newWidth, newHeight);
 
-    const newFontSize = Math.round(250 * window.devicePixelRatio);
-    ctx.fillStyle = "#fef4b8";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("Abdul-Haseeb", newWidth / 2, newHeight / 2);
-
+    drawText(newWidth, newHeight);
     textTexture.needsUpdate = true;
   });
 
@@ -116,9 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
     mouse.x = e.clientX * window.devicePixelRatio;
     mouse.y = (window.innerHeight - e.clientY) * window.devicePixelRatio;
   });
+
   renderer.domElement.addEventListener("mouseleave", () => {
     mouse.set(0, 0);
   });
+
   const animate = () => {
     simMaterial.uniforms.frame.value = frame++;
     simMaterial.uniforms.time.value = performance.now() / 1000;

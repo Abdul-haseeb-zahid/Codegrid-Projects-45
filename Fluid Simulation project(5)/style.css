@@ -10,31 +10,45 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   width: 100%;
   height: 100%;
   font-family: "Poppin";
   background-color: #fb7427;
   color: #fef4b8;
+  overflow-x: hidden;
 }
 
+/* ================= TEXT ================= */
+
 h1 {
-  font-size: 36px;
+  font-size: clamp(1.4rem, 4vw, 2.25rem);
   font-weight: 400;
   line-height: 1.25;
 }
 
 p {
-  font-size: 15px;
-  line-height: 1.25;
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  line-height: 1.4;
 }
+
+button {
+  font-family: "Poppin";
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+}
+
+/* ================= NAV ================= */
 
 nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  padding: 2em;
+  padding: clamp(1rem, 4vw, 2em);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,8 +58,10 @@ nav {
 .nav-items {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: clamp(1rem, 3vw, 2em);
 }
+
+/* ================= BUTTON ================= */
 
 button {
   outline: none;
@@ -53,17 +69,17 @@ button {
   border-radius: 2em;
   color: #fef4b8;
   background-color: transparent;
-  font-family: "Poppin";
-  font-size: 15px;
-  padding: 0.5em 1em;
+  padding: 0.5em 1.2em;
 }
+
+/* ================= FOOTER ================= */
 
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
-  padding: 2em;
+  padding: clamp(1rem, 4vw, 2em);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -71,13 +87,17 @@ footer {
 }
 
 footer h1 {
-  width: 40%;
+  width: min(40%, 600px);
 }
+
+/* ================= FOOTER LINKS ================= */
 
 .footer-links {
   display: flex;
-  gap: 2em;
+  gap: clamp(1rem, 3vw, 2em);
 }
+
+/* ================= CANVAS ================= */
 
 canvas {
   position: fixed;
